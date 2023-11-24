@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about/{search}', function () {
+$data = [
+    'pageTitle' => 'Tentang Kami',
+    'content' => 'Ini adalah halaman tentang kami.'
+];
+return view('about', $data);
+});
+Route::get('/produk','App\Http\Controllers\ProdukController@index');
