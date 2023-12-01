@@ -69,7 +69,7 @@ ProdukModels::find($id)->update($produk);
  return redirect ('/produk')->with('success','Data berhasil di ubah');
 }
 
-public function destroy($id){
+public function destroy($id){ 
   $produk= ProdukModels::find($id);
   if($produk){
     $produk->delete();

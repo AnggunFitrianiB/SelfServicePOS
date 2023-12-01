@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Https\Controllers\ProdukController;
+use App\Http\Controller\UserController;
+use App\Http\Controller\ProdukController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +20,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about/{search}', function () {
-$data = [
-    'pageTitle' => 'Tentang Kami',
-    'content' => 'Ini adalah halaman tentang kami.'
-];
-return view('about', $data);
+Route::get('/user', function () {
+    return view('user');
 });
-Route::get('/produk','App\Http\Controllers\ProdukController@index')->name('produk');
-Route::get('/produk/create','App\Http\Controllers\ProdukController@create')->name('produk.create');
-Route::post('/produk/store','App\Http\Controllers\ProdukController@store')->name('produk.store');
-Route::get('/produk/edit/{id}','App\Http\Controllers\ProdukController@edit')->name('produk.edit');
-Route::put('/produk/{produk}','App\Http\Controllers\ProdukController@update')->name('produk.update');
-Route::delete('/produk/{id}','App\Http\Controllers\ProdukController@delete')->name('produk.destroy');
+Route::get('/produk', function () {
+    return view('produk');
+});
+
+
+Route::get('/about', function () {
+    return 'Halaman About';
+});
+
+Route::get('/about                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ', function () {
+    $data = [
+        'pageTitle' => 'Tentang Kami',
+        'content' => 'Ini adalah halaman tentang kami.'
+    ];
+    return view('about', $data);
+});
+
+Route::get('profile', function () {
+    $nama = "Anggun Fitriani";
+    return view('profile.index', compact('nama'));
+});
