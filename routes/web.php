@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\UserController;
+use App\Http\Controller\ProdukController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,29 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
+Route::get('/produk', function () {
+    return view('produk');
+});
+
+
+Route::get('/about', function () {
+    return 'Halaman About';
+});
+
+Route::get('/about                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ', function () {
+    $data = [
+        'pageTitle' => 'Tentang Kami',
+        'content' => 'Ini adalah halaman tentang kami.'
+    ];
+    return view('about', $data);
+});
+
+Route::get('profile', function () {
+    $nama = "Anggun Fitriani";
+    return view('profile.index', compact('nama'));
 });
